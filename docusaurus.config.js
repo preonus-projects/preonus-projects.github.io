@@ -1,5 +1,6 @@
 // docusaurus.config.js (ESM)
 import {themes as prismThemes} from 'prism-react-renderer';
+const lastUpdated = new Date().toISOString();
 
 const config = {
   title: 'Korus Framework',
@@ -106,6 +107,121 @@ const config = {
     // plugin-sitemap is already included via preset-classic; no explicit entry needed
   ],
 
+
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'google-site-verification',
+        content: 'Gygy4FgsbWRDVK9dZfXN-hQqp1iI2I3w56hFCS6Ko1E',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Korus Framework",
+        "alternateName": "Korus",
+        "description": "Modern Java framework with build-time dependency injection, zero reflection, and sub-200ms startup. Micronaut/Quarkus alternative.",
+        "softwareVersion": "1.0.0",
+        "dateModified": new Date().toISOString().split('T')[0],
+        "author": {
+          "@type": "Person",
+          "name": "Vinit Shinde",
+          "url": "https://github.com/Vin-it-9"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Korus Projects",
+          "url": "https://korus-projects.github.io"
+        },
+        "sameAs": [
+          "https://github.com/korus-projects",
+          "https://github.com/korus-projects/korus-projects.github.io",
+          "https://www.linkedin.com/company/korus-framework/",
+          "https://github.com/Vin-it-9"
+        ],
+        "url": "https://korus-projects.github.io",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "url": "https://korus-projects.github.io"
+        },
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Java 17+",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "releaseNotes": "https://korus-projects.github.io/blog",
+        "isFamilyFriendly": true,
+        "image": "https://korus-projects.github.io/img/logo1.png",
+        "license": "https://opensource.org/licenses/Apache-2.0",
+        "codeRepository": "https://github.com/korus-projects",
+        "programmingLanguage": {
+          "@type": "ComputerLanguage",
+          "name": "Java"
+        },
+
+        "keywords": "Java Framework, Build-time DI, AOT, Dependency Injection, Web Framework, Korus",
+        "featureList": "https://korus-projects.github.io/docs/intro",
+        "downloadUrl": "https://github.com/korus-projects/korus-projects.github.io/releases",
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Developer Name"
+            },
+            "datePublished": "2025-11-15",
+            "reviewBody": "Excellent build-time DI framework...",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            }
+          }
+        ],
+        "inLanguage": "en-US",
+        "availableLanguage": [
+          "en-US",
+          "en-GB",
+          "en-IN"
+        ],
+        "supportedLocales": [
+          "en-US",
+          "en-GB",
+          "en-IN"
+        ],
+        "softwareRequirements": "Java 17 or higher, Maven 3.6+",
+        "softwareHelp": {
+          "@type": "CreativeWork",
+          "url": "https://korus-projects.github.io/docs"
+        },
+        "maintainer": {
+          "@type": "Person",
+          "name": "Vinit Shinde",
+          "url": "https://github.com/Vin-it-9"
+        },
+        "isAccessibleForFree": true,
+        "applicationSubCategory": "Dependency Injection Framework",
+        "copyrightYear": 2025,
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Vinit Shinde"
+        },
+        "installUrl": "https://korus-projects.github.io/docs/installation",
+        "availableOnDevice": "Any device with JVM",
+
+      })
+    }
+
+  ],
+
   themeConfig: {
     image: 'img/logo.png',
 
@@ -140,14 +256,41 @@ const config = {
 
       // AI Crawlers
       { name: 'ai-content', content: 'This site documents Korus Framework — a Java build-time DI engine.' },
-      { name: 'search-engine', content: 'AI-enabled' }
+      { name: 'search-engine', content: 'AI-enabled' },
+
+      { name: 'canonical', content: 'https://korus-projects.github.io/' },
+      { name: 'referrer', content: 'strict-origin-when-cross-origin' },
+
+      { property: 'og:site_name', content: 'Korus Framework' },
+      { property: 'og:locale', content: 'en_US' },
+
+      { name: 'twitter:site', content: '@korus_framework' },
+      { name: 'twitter:domain', content: 'korus-projects.github.io' },
+
+      { property: 'og:image:alt', content: 'Korus Framework — Ultra-fast Java build-time DI framework' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+
+      { name: 'googlebot', content: 'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1' },
+      { name: 'bingbot', content: 'index,follow' },
+
+      // Ownership / verification (fill values from consoles)
+      { name: 'google-site-verification', content: 'Gygy4FgsbWRDVK9dZfXN-hQqp1iI2I3w56hFCS6Ko1E' },
+      { name: 'msvalidate.01', content: 'YOUR_BING_CODE' },
+
+      {
+        property: 'og:updated_time',
+        content: lastUpdated
+      }
     ],
 
 
     // Announcement bar
     announcementBar: {
       id: 'korus_announcement_v1',
-      content: '⭐️ Korus Framework is now live! Join the community on GitHub 🚀',
+      content:
+          '⭐️ Korus Framework is now live! ' +
+          'Join the community on <a href="https://github.com/korus-projects" target="_blank" rel="noopener noreferrer">GitHub</a> 🚀',
       isCloseable: true,
     },
 

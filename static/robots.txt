@@ -1,0 +1,66 @@
+User-agent: *
+Allow: /
+
+# Block only useless pages
+Disallow: /blog/tags/
+Disallow: /blog/archive
+Disallow: /blog/authors
+
+Sitemap: https://korus-projects.github.io/sitemap.xml
+
+# Google AI
+User-agent: Google-Extended
+Allow: /
+
+# Google Search
+User-agent: Googlebot
+Allow: /
+
+# Bing + Copilot
+User-agent: Bingbot
+Allow: /
+
+# OpenAI ChatGPT
+User-agent: GPTBot
+Allow: /
+
+# Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Apple AI
+User-agent: Applebot
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# Brave Search
+User-agent: Bravebot
+Allow: /
+
+# CCBot (Common Crawl)
+User-agent: CCBot
+Allow: /
+
+# Facebook / Meta
+User-agent: FacebookBot
+Allow: /
+
+# International Search Engines
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Sogou Spider
+Allow: /
