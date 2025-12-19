@@ -73,9 +73,69 @@
             <content:encoded><![CDATA[<p>Let’s compare the most popular modern Java frameworks.</p>
 <hr>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="startup-time-comparison">Startup Time Comparison<a href="https://korus-projects.github.io/blog/korus-vs-spring-micronaut-quarkus#startup-time-comparison" class="hash-link" aria-label="Direct link to Startup Time Comparison" title="Direct link to Startup Time Comparison" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>Framework</th><th>Startup Time</th></tr></thead><tbody><tr><td>Spring Boot</td><td>1500–2500ms</td></tr><tr><td>Micronaut</td><td>600–1200ms</td></tr><tr><td>Quarkus</td><td>800–1500ms</td></tr><tr><td><strong>Korus</strong></td><td><strong>120–250ms</strong></td></tr></tbody></table>
 <hr>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="dependency-injection-model">Dependency Injection Model<a href="https://korus-projects.github.io/blog/korus-vs-spring-micronaut-quarkus#dependency-injection-model" class="hash-link" aria-label="Direct link to Dependency Injection Model" title="Direct link to Dependency Injection Model" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>Framework</th><th>DI Style</th><th>Reflection?</th><th>Compile-Time?</th></tr></thead><tbody><tr><td>Spring Boot</td><td>Runtime DI</td><td>Yes</td><td>Partial</td></tr><tr><td>Micronaut</td><td>Compile-Time DI</td><td>No</td><td>Yes</td></tr><tr><td>Quarkus</td><td>Build-Time DI</td><td>Some</td><td>Mostly</td></tr><tr><td><strong>Korus</strong></td><td><strong>Build-Time DI</strong></td><td><strong>Some</strong></td><td><strong>Mostly</strong></td></tr></tbody></table>
 <hr>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="architecture-differences">Architecture Differences<a href="https://korus-projects.github.io/blog/korus-vs-spring-micronaut-quarkus#architecture-differences" class="hash-link" aria-label="Direct link to Architecture Differences" title="Direct link to Architecture Differences" translate="no">​</a></h2>
@@ -106,6 +166,35 @@
 </ul>
 <hr>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="when-to-choose-which">When to choose which?<a href="https://korus-projects.github.io/blog/korus-vs-spring-micronaut-quarkus#when-to-choose-which" class="hash-link" aria-label="Direct link to When to choose which?" title="Direct link to When to choose which?" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>Use Case</th><th>Best Choice</th></tr></thead><tbody><tr><td>Enterprise backend</td><td>Spring Boot</td></tr><tr><td>Serverless</td><td>Korus / Quarkus</td></tr><tr><td>Microservices</td><td>Korus / Micronaut</td></tr><tr><td>CLI apps</td><td>Korus</td></tr><tr><td>AOT native images</td><td>Korus / Quarkus</td></tr></tbody></table>
 <hr>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="final-verdict">Final Verdict<a href="https://korus-projects.github.io/blog/korus-vs-spring-micronaut-quarkus#final-verdict" class="hash-link" aria-label="Direct link to Final Verdict" title="Direct link to Final Verdict" translate="no">​</a></h2>
@@ -131,14 +220,14 @@
             <pubDate>Tue, 02 Dec 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[How Korus generates your DI graph at compile time and eliminates reflection completely.]]></description>
             <content:encoded><![CDATA[<p>Most Java frameworks use <strong>runtime DI</strong>, where objects are created and wired when the application starts.<br>
-<!-- -->This works — but it's slow, unpredictable, and memory-heavy.</p>
+This works — but it's slow, unpredictable, and memory-heavy.</p>
 <p>Korus takes a different approach:</p>
 <blockquote>
 <p><strong>All dependency injection is generated at compile time.</strong></p>
 </blockquote>
 <p>No reflection.<br>
-<!-- -->No proxies.<br>
-<!-- -->No classpath scanning.</p>
+No proxies.<br>
+No classpath scanning.</p>
 <hr>
 <h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="why-build-time-di">Why Build-Time DI?<a href="https://korus-projects.github.io/blog/build-time-dependency-injection-explained#why-build-time-di" class="hash-link" aria-label="Direct link to Why Build-Time DI?" title="Direct link to Why Build-Time DI?" translate="no">​</a></h2>
 <p>Build-time DI solves three major problems:</p>
@@ -158,7 +247,7 @@
 <li class="">Scans your source code</li>
 <li class="">Builds an internal DI model</li>
 <li class="">Sorts beans with a topological algorithm</li>
-<li class="">Generates:<!-- -->
+<li class="">Generates:
 <ul>
 <li class="">Constructor injection code</li>
 <li class="">Method injection code</li>
@@ -210,7 +299,7 @@
 <p><em>Even build-time DI frameworks keep some runtime magic.</em></p>
 </blockquote>
 <p>Some still rely on reflection, some use proxies, some still scan packages.<br>
-<!-- -->This inspired the architecture of Korus:</p>
+This inspired the architecture of Korus:</p>
 <ul>
 <li class="">Pure annotation processing</li>
 <li class="">Pure compile-time registry generation</li>
@@ -263,7 +352,7 @@
 </ul>
 <hr>
 <p>Korus is now open to the Java community.<br>
-<!-- -->I built it to solve real problems, and I’m excited to see what developers create with it.</p>
+I built it to solve real problems, and I’m excited to see what developers create with it.</p>
 <p>👉 GitHub: <strong><a href="https://github.com/korus-projects/" target="_blank" rel="noopener noreferrer" class="">https://github.com/korus-projects/</a></strong></p>]]></content:encoded>
             <category>korus</category>
             <category>java</category>
