@@ -22,6 +22,8 @@ Reflection, classpath scanning, proxies, and runtime bean creation all slow down
 
 **during compilation**, not at runtime.
 
+<!-- truncate -->
+
 The result:
 
 - **120–250 ms startup time**
@@ -101,4 +103,3 @@ Korus is now open to the Java community.
 I built it to solve real problems, and I’m excited to see what developers create with it.
 
 👉 GitHub: **https://github.com/korus-projects/**
-

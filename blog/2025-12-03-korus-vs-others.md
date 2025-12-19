@@ -10,6 +10,8 @@ tags: [korus, java, comparison, quarkus, spring, micronaut]
 
 Let’s compare the most popular modern Java frameworks.
 
+<!-- truncate -->
+
 ---
 
 ## Startup Time Comparison
@@ -81,4 +83,3 @@ Korus is ideal when you want:
 - Zero reflection runtime
 
 Korus stands as a **next-generation framework** built for modern Java workloads.
-

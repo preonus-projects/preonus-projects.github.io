@@ -19,6 +19,8 @@ No reflection.
 No proxies.  
 No classpath scanning.
 
+<!-- truncate -->
+
 ---
 
 ## Why Build-Time DI?
@@ -74,3 +76,4 @@ public final class UserService$$KorusBean {
         return new UserService(repo);
     }
 }
+```

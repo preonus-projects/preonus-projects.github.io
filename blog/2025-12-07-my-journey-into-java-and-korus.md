@@ -10,6 +10,8 @@ tags: [java, korus, journey]
 
 Hello everyone! I’m **Vinit Shinde** from **Pune**, currently in my **final year at PICT**. This blog is a small part of my story as a developer and the journey that eventually led to the creation of the **Korus Java Framework**.
 
+<!-- truncate -->
+
 ## How Everything Started
 
 Right after completing my 12th, I directly jumped into programming. I didn’t explore multiple languages—I started straight with **Java**, and that became my world.
