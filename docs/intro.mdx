@@ -1,0 +1,86 @@
+---
+sidebar_position: 1
+id: intro
+title: Introduction to Korus Framework
+description: Learn about Korus Framework - a Build-Time Dependency Injection framework for ultra-fast Java applications
+---
+
+import { StartupComparison, BenchmarkChart } from '@site/src/components/interactive';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Introduction to Korus Framework
+
+Korus Framework is a Build-Time Dependency Injection framework designed for **ultra-fast Java applications**.
+It removes reflection, classpath scanning, and runtime dependency wiring entirely — delivering performance comparable to Quarkus and Micronaut while preserving a clean, Spring-like developer experience.
+
+:::info
+Created and maintained by **Vinit Shinde** (Aug 2025 – Present).
+GitHub Repository: **[korus-projects](http://github.com/korus-projects/)**
+:::
+
+---
+
+## What is Korus?
+
+Korus is a modern Java framework built around **annotation processing**, **compile-time bean creation**, and a **lightweight runtime**.
+All routing, dependency wiring, configuration metadata, and validation logic is generated **during compilation**, not at runtime.
+
+:::tip Key Benefits
+- **Zero Reflection** - No runtime introspection overhead
+- **Zero Classpath Scanning** - Everything resolved at compile time
+- **Zero Dynamic Proxies** - Direct method calls only
+- **Instant Startup Times** - Applications start in milliseconds
+- **Low Memory Footprint** - Minimal runtime overhead
+:::
+
+---
+
+## Architecture Overview
+
+<Tabs>
+<TabItem value="processor" label="Build-Time Engine" default>
+
+### **Korus Processor**
+
+Responsible for:
+- Annotation scanning & model building
+- Generating bean wiring at compile time
+- Creating DI registries
+- Performing circular dependency detection
+- Generating route metadata
+- Jandex-based indexing for fast lookups
+- Auto-generating a `KorusMain` boot class
+
+</TabItem>
+<TabItem value="runtime" label="Runtime Engine">
+
+### **Korus Framework**
+
+A lightweight runtime that:
+- Loads pre-generated classes instantly
+- Does not perform any reflection
+- Does not scan classpath packages
+- Uses static indexes + generated registries
+- Boots in ~0.10s – 0.20s
+
+</TabItem>
+</Tabs>
+
+---
+
+## Build-Time Dependency Injection
+
+Korus generates concrete bean classes and wiring logic **during compilation**:
+
+- Direct constructor/method injection written into generated Java files
+- Deterministic topological sort for bean initialization
+- Compile-time detection of circular dependencies
+- Complete removal of runtime scanning and proxies
+
+This gives Korus its signature performance benefits.
+
+---
+
+Check out the documentation to learn more about Korus Framework.
+

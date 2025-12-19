@@ -1,0 +1,169 @@
+---
+id: setup
+title: Installation Guide
+sidebar_position: 1
+description: Install and configure Korus Framework in your Java or Kotlin project
+keywords: [korus installation, maven, gradle, java setup, kotlin setup]
+---
+
+# Installation Guide
+
+This guide walks you through installing Korus Framework in your project.
+
+## Prerequisites
+
+Before installing Korus, ensure you have:
+
+- **Java 17+** or **Kotlin 1.9+**
+- **Maven 3.6+** or **Gradle 8.0+**
+- An IDE (IntelliJ IDEA or VS Code recommended)
+
+<DependencyBadge name="Java" version="17+" color="success" />
+<DependencyBadge name="Kotlin" version="1.9+" color="primary" />
+<DependencyBadge name="Maven" version="3.6+" color="info" />
+<DependencyBadge name="Gradle" version="8.0+" color="warning" />
+
+## Quick Install
+
+Add Korus to your project by configuring the build system. Korus uses a Build Parent for Maven and a standard plugin-style approach for Gradle.
+
+<CodeTabs
+  maven={`<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.korus</groupId>
+        <artifactId>korus-build-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>my-korus-app</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.korus</groupId>
+            <artifactId>core-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-Akorus.processing.verbose=true</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>`}
+  gradle={`plugins {
+    id 'java'
+    id 'io.korus.plugin' version '1.0.0'
+}
+
+group = 'com.example'
+version = '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.korus:core-starter'
+    runtimeOnly 'ch.qos.logback:logback-classic'
+    
+    // Annotation Processor
+    annotationProcessor 'io.korus:korus-processor'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Akorus.processing.verbose=true"
+}`}
+  title="Project Configuration"
+/>
+
+## Project Structure
+
+Korus is designed to be lean. **You do not need a Main class**; the framework automatically generates the entry point during compilation.
+
+```text
+my-korus-app/
+├── src/
+│   ├── main/
+│   │   ├── java/ (or kotlin/)
+│   │   │   └── com/example/
+│   │   │       ├── controllers/
+│   │   │       │   └── HelloController.java
+│   │   │       └── services/
+│   │   │           └── HelloService.java
+│   │   └── resources/
+│   │       └── application.properties
+└── pom.xml (or build.gradle)
+
+```
+
+## Verify Installation
+
+Create a simple service to verify the build-time wiring and code generation.
+
+<CodeTabs
+    java={`package com.example.services;
+
+import io.korus.core.annotation.Service;
+
+@Service
+public class HelloService {
+    public String sayHello(String name) {
+        return "Hello, " + name + "!";
+    }
+}`} kotlin={`package com.example.services
+
+import io.korus.core.annotation.Service
+
+@Service
+class HelloService {
+    fun sayHello(name: String): String {
+        return "Hello, $name!"
+    }
+}`}
+    title="HelloService Verification"
+/>
+
+Build and compile your project:
+
+<CodeTabs
+    maven={<CopyButton text="mvn clean compile" />}
+    gradle={<CopyButton text="./gradlew classes" />}
+    title="Build Command"
+/>
+
+## IDE Configuration
+
+### IntelliJ IDEA
+
+1. **Enable Annotation Processing**:
+* `Settings` → `Build, Execution, Deployment` → `Compiler` → `Annotation Processors`
+* Check **"Enable annotation processing"**
+
+
+2. **Kotlin Support**: Ensure the **KAPT** or **KSP** plugin is enabled if using Kotlin.
+
+### VS Code
+
+Install the Korus VS Code extension for enhanced support:
+
+<CopyButton text="code --install-extension korus.korus-initializer" />
+
+## Next Steps
+
+Now that Korus is installed:
+
+* **[Quick Start Tutorial](/docs/quick-start/first-app)** - Build your first app in under 5 minutes.

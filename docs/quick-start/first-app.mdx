@@ -1,0 +1,207 @@
+---
+id: first-app
+title: Build Your First App
+sidebar_position: 1
+description: Create your first REST API with Korus Framework in under 5 minutes
+keywords: [korus tutorial, first app, rest api, quick start]
+---
+
+# Build Your First Korus Application
+
+Let's build a simple REST API in under 5 minutes using Korus Framework!
+
+## What We'll Build
+
+A REST API with:
+- Health check endpoint
+- User management service
+- Dependency injection
+- Sub-200ms startup time
+
+## Step 1: Create Service Layer
+
+First, create a service to handle business logic:
+
+<CodeTabs
+  java={`package com.example.services;
+
+import io.korus.core.annotation.Service;
+import java.util.List;
+import java.util.ArrayList;
+
+@Service
+public class UserService {
+    private final List<String> users = new ArrayList<>();
+    
+    public UserService() {
+        // Initialize with sample data
+        users.add("Alice");
+        users.add("Bob");
+    }
+    
+    public List<String> getAllUsers() {
+        return new ArrayList<>(users);
+    }
+    
+    public void addUser(String name) {
+        users.add(name);
+    }
+    
+    public String getUser(int index) {
+        if (index >= 0 && index < users.size()) {
+            return users.get(index);
+        }
+        return null;
+    }
+}`}
+  kotlin={`package com.example.services
+
+import io.korus.core.annotation.Service
+
+@Service
+class UserService {
+    private val users = mutableListOf("Alice", "Bob")
+    
+    fun getAllUsers(): List<String> = users.toList()
+    
+    fun addUser(name: String) {
+        users.add(name)
+    }
+    
+    fun getUser(index: Int): String? {
+        return users.getOrNull(index)
+    }
+}`}
+  title="UserService - Business Logic"
+/>
+
+## Step 2: Create REST Controller
+
+Now create a controller to expose REST endpoints:
+
+<CodeTabs
+  java={`package com.example.controllers;
+
+import com.example.services.UserService;
+import io.korus.web.annotation.RestController;
+import io.korus.web.annotation.GetMapping;
+import io.korus.web.annotation.PostMapping;
+import io.korus.web.annotation.PathVariable;
+import io.korus.web.annotation.RequestBody;
+import io.korus.web.exception.NotFoundException;
+
+import java.util.List;
+
+@RestController("/api")
+public class UserController {
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @GetMapping("/users")
+    public List<String> getAllUsers() {
+        return userService.getAllUsers();
+    }
+    
+    @GetMapping("/users/{id}")
+    public String getUser(@PathVariable int id) {
+        String user = userService.getUser(id);
+        if (user == null) {
+            throw new NotFoundException("User not found");
+        }
+        return user;
+    }
+    
+    @PostMapping("/users")
+    public void addUser(@RequestBody String name) {
+        userService.addUser(name);
+    }
+    
+    @GetMapping("/health")
+    public String health() {
+        return "OK";
+    }
+}`}
+  kotlin={`package com.example.controllers
+
+import com.example.services.UserService
+import io.korus.web.annotation.RestController
+import io.korus.web.annotation.GetMapping
+import io.korus.web.annotation.PostMapping
+import io.korus.web.annotation.PathVariable
+import io.korus.web.annotation.RequestBody
+import io.korus.web.exception.NotFoundException
+
+
+@RestController("/api")
+class UserController(
+    private val userService: UserService
+) {
+    @GetMapping("/users")
+    fun getAllUsers() = userService.getAllUsers()
+    
+    @GetMapping("/users/{id}")
+    fun getUser(@PathVariable id: Int): String {
+        return userService.getUser(id) 
+            ?: throw NotFoundException("User not found")
+    }
+    
+    @PostMapping("/users")
+    fun addUser(@RequestBody name: String) {
+        userService.addUser(name)
+    }
+    
+    @GetMapping("/health")
+    fun health() = "OK"
+}`}
+  title="UserController - REST API"
+/>
+
+
+## Step 3: Build and Run
+
+That's it! No need to create a main class. Korus auto-generates the entry point.
+
+<CodeTabs
+  maven={`mvn clean compile
+mvn exec:java`}
+  gradle={`./gradlew clean build
+./gradlew run`}
+  title="Build and Run"
+/>
+
+## Test Your API
+
+Your application is now running! Test the endpoints:
+
+<CopyButton text="curl http://localhost:8080/api/health" />
+
+<CopyButton text="curl http://localhost:8080/api/users" />
+
+<CopyButton text='curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d "Charlie"' />
+
+## Performance Results
+
+<PerformanceHighlight 
+  metric="Startup Time" 
+  value="185ms"
+  improvement="Your app is ready in under 200ms!"
+  icon="🚀"
+  variant="success"
+/>
+
+## What Just Happened?
+
+During compilation, Korus:
+
+1. Scanned your `@Service` and `@RestController` annotations
+2. Generated dependency injection code
+3. Created route mappings
+4. Built a complete application entry point
+5. Eliminated all reflection overhead
+
+:::success You're Ready!
+You now have a working Korus application with ultra-fast startup and zero reflection overhead!
+:::
