@@ -6,7 +6,37 @@ const sidebars = {
     // Introduction
     'intro',
 
-    // VS Code Extension (Manually ordered)
+    // Getting Started Section
+    {
+      type: 'category',
+      label: 'Getting Started',
+      collapsed: true,
+      items: [
+        'getting-started/introduction',
+      ],
+    },
+
+    // Installation
+    {
+      type: 'category',
+      label: 'Installation',
+      collapsed: true,
+      items: [
+        'installation/setup',
+      ],
+    },
+
+    // Quick Start
+    {
+      type: 'category',
+      label: 'Quick Start',
+      collapsed: true,
+      items: [
+        'quick-start/first-app',
+      ],
+    },
+
+    // VS Code Extension
     {
       type: 'category',
       label: 'VS Code Extension',
