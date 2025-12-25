@@ -2,12 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://korus-projects.github.io/blog</id>
     <title>Korus Framework Blog</title>
-    <updated>2025-12-07T00:00:00.000Z</updated>
+    <updated>2025-12-25T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://korus-projects.github.io/blog"/>
     <subtitle>Java framework with build-time dependency injection - Latest updates, tutorials, and insights</subtitle>
     <icon>https://korus-projects.github.io/img/logo1.png</icon>
     <rights>Copyright © 2025 Korus Framework. All rights reserved.</rights>
+    <entry>
+        <title type="html"><![CDATA[Switching Baseline to Java 25]]></title>
+        <id>https://korus-projects.github.io/blog/switch-to-java-25</id>
+        <link href="https://korus-projects.github.io/blog/switch-to-java-25"/>
+        <updated>2025-12-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are updating our project baseline to Java 25 to leverage the latest JVM innovations and native performance.]]></summary>
+        <content type="html"><![CDATA[<p>To build the fastest dependency injection framework for the modern era, we need tools that match that ambition. Today, we are announcing that our project is moving its minimum requirement to <strong>Java 25</strong>.</p>
+<p>While many projects still use Java 17, we found that staying on older versions forced us to use "hacks" and heavy third-party libraries that slowed down the development and performance of the framework.</p>
+<h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="why-not-stay-on-java-17">Why not stay on Java 17?<a href="https://korus-projects.github.io/blog/switch-to-java-25#why-not-stay-on-java-17" class="hash-link" aria-label="Direct link to Why not stay on Java 17?" title="Direct link to Why not stay on Java 17?" translate="no">​</a></h2>
+<p>Java 17 was a great milestone, but for modern framework development, it lacks the native power available in the latest releases. Sticking to a Java 17 baseline would mean:</p>
+<ul>
+<li class=""><strong>Heavy Dependencies:</strong> We would be forced to keep using external libraries like ASM or ByteBuddy for bytecode manipulation. Java 25 provides this natively.</li>
+<li class=""><strong>More Boilerplate:</strong> Java 17 lacks the advanced Pattern Matching and Record features that make our internal code clean and high-performing.</li>
+<li class=""><strong>Slower Startup:</strong> Java 17 doesn't support the new "Compact Object Headers" or the refined Virtual Thread stability that makes modern applications scale effortlessly.</li>
+</ul>
+<h2 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="what-makes-java-25-better-for-this-framework">What makes Java 25 better for this Framework?<a href="https://korus-projects.github.io/blog/switch-to-java-25#what-makes-java-25-better-for-this-framework" class="hash-link" aria-label="Direct link to What makes Java 25 better for this Framework?" title="Direct link to What makes Java 25 better for this Framework?" translate="no">​</a></h2>
+<p>By switching to Java 25, we have unlocked three major "superpowers" that improve every application built with our tools:</p>
+<h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="1-the-native-class-file-api">1. The Native Class-File API<a href="https://korus-projects.github.io/blog/switch-to-java-25#1-the-native-class-file-api" class="hash-link" aria-label="Direct link to 1. The Native Class-File API" title="Direct link to 1. The Native Class-File API" translate="no">​</a></h3>
+<p>In Java 17, reading or generating a class file required a third-party library. In Java 25, we use the <strong>Standard Class-File API</strong>. This makes our build-time processing smaller, faster, and much more stable across different environments.</p>
+<h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="2-compact-object-headers">2. Compact Object Headers<a href="https://korus-projects.github.io/blog/switch-to-java-25#2-compact-object-headers" class="hash-link" aria-label="Direct link to 2. Compact Object Headers" title="Direct link to 2. Compact Object Headers" translate="no">​</a></h3>
+<p>Java 25 introduces <strong>Compact Object Headers</strong>, which reduce the memory footprint of every single object. For a framework that manages thousands of components, this translates to a <strong>significant reduction in heap memory</strong> usage automatically.</p>
+<h3 class="anchor anchorTargetHideOnScrollNavbar_vjPI" id="3-stable-values">3. Stable Values<a href="https://korus-projects.github.io/blog/switch-to-java-25#3-stable-values" class="hash-link" aria-label="Direct link to 3. Stable Values" title="Direct link to 3. Stable Values" translate="no">​</a></h3>
+<p>We now leverage the new <strong>Stable Values API</strong>. This tells the JVM that once a dependency is injected, it will <em>never</em> change. This allows the JIT compiler to optimize your code as if you used <code>static final</code> constants, making your application run at peak hardware speed.</p>
+<p><strong>We are building for the next 10 years of Java, not the last 10.</strong></p>]]></content>
+        <author>
+            <name>Vinit Shinde</name>
+            <uri>https://github.com/Vin-it-9</uri>
+        </author>
+        <category label="java-25" term="java-25"/>
+        <category label="java" term="java"/>
+        <category label="updates" term="updates"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[My Journey into Java and the Story Behind Korus]]></title>
         <id>https://korus-projects.github.io/blog/my-journey-into-java-and-korus</id>
