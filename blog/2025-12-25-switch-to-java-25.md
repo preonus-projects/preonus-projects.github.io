@@ -13,7 +13,7 @@ To build the fastest dependency injection framework for the modern era, we need 
 While many projects still use Java 17, we found that staying on older versions forced us to use "hacks" and heavy third-party libraries that slowed down the development and performance of the framework.
 
 ## Why not stay on Java 17?
-
+<!-- truncate -->
 Java 17 was a great milestone, but for modern framework development, it lacks the native power available in the latest releases. Sticking to a Java 17 baseline would mean:
 
 * **Heavy Dependencies:** We would be forced to keep using external libraries like ASM or ByteBuddy for bytecode manipulation. Java 25 provides this natively.
