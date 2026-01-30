@@ -2,13 +2,13 @@
 id: first-app
 title: Build Your First App
 sidebar_position: 1
-description: Create your first REST API with Korus Framework in under 5 minutes
-keywords: [korus tutorial, first app, rest api, quick start]
+description: Create your first REST API with Preonus Framework in under 5 minutes
+keywords: [preonus tutorial, first app, rest api, quick start]
 ---
 
-# Build Your First Korus Application
+# Build Your First Preonus Application
 
-Let's build a simple REST API in under 5 minutes using Korus Framework!
+Let's build a simple REST API in under 5 minutes using Preonus Framework!
 
 ## What We'll Build
 
@@ -25,7 +25,7 @@ First, create a service to handle business logic:
 <CodeTabs
   java={`package com.example.services;
 
-import io.korus.core.annotation.Service;
+import io.preonus.core.annotation.Service;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -56,7 +56,7 @@ public class UserService {
 }`}
   kotlin={`package com.example.services
 
-import io.korus.core.annotation.Service
+import io.preonus.core.annotation.Service
 
 @Service
 class UserService {
@@ -83,12 +83,12 @@ Now create a controller to expose REST endpoints:
   java={`package com.example.controllers;
 
 import com.example.services.UserService;
-import io.korus.web.annotation.RestController;
-import io.korus.web.annotation.GetMapping;
-import io.korus.web.annotation.PostMapping;
-import io.korus.web.annotation.PathVariable;
-import io.korus.web.annotation.RequestBody;
-import io.korus.web.exception.NotFoundException;
+import io.preonus.web.annotation.RestController;
+import io.preonus.web.annotation.GetMapping;
+import io.preonus.web.annotation.PostMapping;
+import io.preonus.web.annotation.PathVariable;
+import io.preonus.web.annotation.RequestBody;
+import io.preonus.web.exception.NotFoundException;
 
 import java.util.List;
 
@@ -127,12 +127,12 @@ public class UserController {
   kotlin={`package com.example.controllers
 
 import com.example.services.UserService
-import io.korus.web.annotation.RestController
-import io.korus.web.annotation.GetMapping
-import io.korus.web.annotation.PostMapping
-import io.korus.web.annotation.PathVariable
-import io.korus.web.annotation.RequestBody
-import io.korus.web.exception.NotFoundException
+import io.preonus.web.annotation.RestController
+import io.preonus.web.annotation.GetMapping
+import io.preonus.web.annotation.PostMapping
+import io.preonus.web.annotation.PathVariable
+import io.preonus.web.annotation.RequestBody
+import io.preonus.web.exception.NotFoundException
 
 
 @RestController("/api")
@@ -162,7 +162,7 @@ class UserController(
 
 ## Step 3: Build and Run
 
-That's it! No need to create a main class. Korus auto-generates the entry point.
+That's it! No need to create a main class. Preonus auto-generates the entry point.
 
 <CodeTabs
   maven={`mvn clean compile
@@ -194,7 +194,7 @@ Your application is now running! Test the endpoints:
 
 ## What Just Happened?
 
-During compilation, Korus:
+During compilation, Preonus:
 
 1. Scanned your `@Service` and `@RestController` annotations
 2. Generated dependency injection code
@@ -203,5 +203,5 @@ During compilation, Korus:
 5. Eliminated all reflection overhead
 
 :::success You're Ready!
-You now have a working Korus application with ultra-fast startup and zero reflection overhead!
+You now have a working Preonus application with ultra-fast startup and zero reflection overhead!
 :::
