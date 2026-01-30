@@ -34,13 +34,13 @@
     transform: translateY(-6px);
 }
 
-.column--korus {
+.column--preonus {
     border-color: rgba(88, 166, 255, 0.3);
     background: linear-gradient(180deg, rgba(88, 166, 255, 0.08) 0%, transparent 30%), var(--glass-bg);
     position: relative;
 }
 
-.column--korus::before {
+.column--preonus::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -51,14 +51,14 @@
     pointer-events: none;
 }
 
-.column--korus:hover {
+.column--preonus:hover {
     box-shadow:
         0 16px 48px rgba(88, 166, 255, 0.2),
         0 0 0 1px rgba(88, 166, 255, 0.1);
     border-color: rgba(88, 166, 255, 0.5);
 }
 
-.column--korus:hover::before {
+.column--preonus:hover::before {
     opacity: 1;
 }
 
@@ -110,7 +110,7 @@
     background-clip: text;
 }
 
-.column--korus .header svg {
+.column--preonus .header svg {
     color: var(--ifm-color-primary);
     filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.4));
 }

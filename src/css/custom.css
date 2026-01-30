@@ -592,7 +592,7 @@ html[data-theme='light'] {
 }
 
 .footer::after {
-  content: 'KORUS';
+  content: 'PREONUS';
   position: absolute;
   bottom: -4vw;
   left: 50%;
